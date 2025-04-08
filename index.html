@@ -1,0 +1,93 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOK MANAGEMENT SYSTEM</title>
+   <!-- PNG Favicon -->
+   <link rel="icon" href="./favicon.png" type="image/png">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container py-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h1 class="mb-0 d-flex align-items-center">
+            <img src="./favicon.png" alt="favicon" width="32" height="32" class="me-2">
+            Book Management System
+          </h1>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal" onclick="openAddModal()">
+            <span class="me-1">+</span> Add Book
+          </button>
+        </div>
+      
+        <div class="d-flex justify-content-center mb-3">
+          <input id="searchInput" class="form-control w-50" placeholder="Search books by title or author...">
+        </div>
+      
+        <ul class="nav nav-tabs" id="bookTabs">
+          <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#all">All Books</a></li>
+          <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#favorites">Favorites</a></li>
+          <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#unread">Unread</a></li>
+          <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#read">Read</a></li>
+        </ul>
+      
+        <div class="tab-content">
+          <div class="tab-pane fade show active" id="all"></div>
+          <div class="tab-pane fade" id="favorites"></div>
+          <div class="tab-pane fade" id="unread"></div>
+          <div class="tab-pane fade" id="read"></div>
+        </div>
+      </div>
+      
+      <!-- Book Modal -->
+      <div class="modal fade" id="bookModal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <form id="bookForm">
+              <div class="modal-header">
+                <h5 class="modal-title">Add Book</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                <input type="hidden" id="bookId">
+                <div class="mb-3">
+                  <label>Title</label>
+                  <input type="text" id="title" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                  <label>Author</label>
+                  <input type="text" id="author" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                  <label>Genre</label>
+                  <input type="text" id="genre" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                  <label>Status</label>
+                  <select id="status" class="form-control" required>
+                    <option value="Unread">Unread</option>
+                    <option value="Read">Read</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label>Book Cover</label>
+                  <input type="file" id="image" class="form-control" accept="image/*" required>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-success">Save Book</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+      <script src="index.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+      </body>
+</body>
+</html>
